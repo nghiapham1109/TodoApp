@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -30,7 +31,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment(), noteClickInterface, noteDeleteInterface {
 
     private lateinit var binding: FragmentHomeBinding
-    private val noteRVAdapter: NoteAdapter = NoteAdapter( this, this)
+    private val noteRVAdapter: NoteAdapter = NoteAdapter(this, this)
 
     private val viewModel by activityViewModels<NoteViewModel>()
 
@@ -60,14 +61,15 @@ class HomeFragment : Fragment(), noteClickInterface, noteDeleteInterface {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
         }
     }
+
     override fun onClick(note: Note) {
-        findNavController().navigate(R.id.action_homeFragment_to_updateFragment)
-//        intent.putExtra("noteType", "Edit")
-//        intent.putExtra("noteIDNote", note.idNote)
-//        intent.putExtra("noteIDUser", note.idUser)
-//        intent.putExtra("noteTitle", note.title)
-//        intent.putExtra("noteDescription", note.description)
-//        intent.putExtra("notePriority", note.priority)
+        var bundle = Bundle()
+        bundle.putString("noteIDNote", note.idNote)
+        bundle.putString("noteIDUser", note.idUser)
+        bundle.putString("noteTitle", note.title)
+        bundle.putString("noteDescription", note.description)
+        bundle.putString("notePriority", note.priority)
+        findNavController().navigate(R.id.action_homeFragment_to_updateFragment, bundle)
     }
 
     override fun onDeleteIconClick(note: Note) {
