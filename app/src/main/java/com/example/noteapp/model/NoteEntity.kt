@@ -28,5 +28,6 @@ data class Note(
     val idUser: String,
     val title: String,
     val description: String,
-    val priority: String
+    val priority: String,
+    val timeStamp: String
 )

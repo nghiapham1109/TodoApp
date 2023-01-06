@@ -94,11 +94,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/4f597e8b067151aa8161e0e780229b57/transformed/sqlite-framework-2.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8adaddce3cb64104566e4f61c150cdcb/transformed/sqlite-2.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8c773e70b2b622f83ec01eba4522f992/transformed/jetified-lifecycle-livedata-ktx-2.3.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/9302a4703946ac05df653cf273142d26/transformed/jetified-work-multiprocess-2.7.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/0d57be7e3d3816e20c797f81b25feff9/transformed/work-runtime-ktx-2.7.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/b6285d9adb0602d223a335f0259787e2/transformed/work-rxjava2-2.7.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/29260f8658b9dd2f654456adc406ef5f/transformed/jetified-work-gcm-2.7.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/c50c4db2941928bab1ca330435be3b13/transformed/work-runtime-2.7.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/0eb1ac8199d6ebcf9ed7ad69566ffc80/transformed/lifecycle-livedata-2.3.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/954e35b7e95c62698a51ec333fc28660/transformed/jetified-lifecycle-livedata-core-ktx-2.3.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/205c193320834182d3fe3312766f1a65/transformed/lifecycle-livedata-core-2.3.1-api.jar</arg>
@@ -129,10 +124,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2b0cdfcb10da3734ccc045c794e84aa3/transformed/jetified-dagger-lint-aar-2.42-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/dc00145af47b179ce08a09fc65dec2f8/transformed/jetified-jsr305-3.0.2.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/059bb732b847b7f6c462f6f4a9dae968/transformed/jetified-core-1.9.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/498e38009a74cbabecd5298962450e15/transformed/jetified-listenablefuture-1.0.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/6e68ae577236fecbb559b4f55f05f02b/transformed/jetified-startup-runtime-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/019eae49b14cd02c37e2d33169cb74cc/transformed/jetified-rxjava-2.2.9.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/e897691ae2f020a145f38e319b4cf399/transformed/jetified-reactive-streams-1.0.2.jar</arg>
                 <arg>$USER_HOME$/Android/Sdk/platforms/android-31/android.jar</arg>
                 <arg>$USER_HOME$/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar</arg>
               </args>
@@ -204,9 +195,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.dagger:dagger:2.42" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.guava:listenablefuture:1.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.reactivex.rxjava2:rxjava:2.2.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.reactivestreams:reactive-streams:1.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:databinding-runtime:7.0.4@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:databinding-adapters:7.0.4@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:databinding-ktx:7.0.4@aar" level="project" />
@@ -263,11 +251,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.sqlite:sqlite-framework:2.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.sqlite:sqlite:2.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata-ktx:2.3.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.work:work-multiprocess:2.7.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.work:work-runtime-ktx:2.7.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.work:work-rxjava2:2.7.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.work:work-gcm:2.7.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.work:work-runtime:2.7.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.3.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.3.1@aar" level="project" />
@@ -284,7 +267,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.constraintlayout:constraintlayout:2.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.dagger:dagger-lint-aar:2.42@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.play:core:1.9.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.startup:startup-runtime:1.0.0@aar" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="Note_App.app.main" />
 </module>

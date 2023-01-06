@@ -9,7 +9,7 @@ import com.example.noteapp.database.dao.UserDao
 import com.example.noteapp.model.Note
 import com.example.noteapp.model.User
 
-@Database(entities = arrayOf(User::class, Note::class), version = 18, exportSchema = false)
+@Database(entities = arrayOf(User::class, Note::class), version = 27, exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
     abstract fun getNoteDao(): NoteDao
     abstract fun getUserDao(): UserDao
@@ -21,8 +21,9 @@ abstract class NoteDatabase : RoomDatabase() {
         fun getInstance(context: Context): NoteDatabase {
             if (instance == null) {
                 instance =
-                    Room.databaseBuilder(context, NoteDatabase::class.java, "ToDoAppDatabase12")
+                    Room.databaseBuilder(context, NoteDatabase::class.java, "ToDoAppDatabase123")
                         .allowMainThreadQueries()
+//                        .fallbackToDestructiveMigration()
                         .build()
             }
             return instance!!

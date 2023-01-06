@@ -42,18 +42,18 @@ class UpdateNoteActivity : AppCompatActivity() {
         }
 
         binding.btnUpdate.setOnClickListener {
-            val noteIDNote = binding.etIDNote.text.toString()
-            val noteIDUser = binding.etIDUser.text.toString()
-            if (noteType.equals("Edit")) {
-                if (noteIDNote.isNotEmpty() && noteIDUser.isNotEmpty()) {
-                    val noteTitle = binding.etTitle.text.toString()
-                    val noteDescription = binding.etDescription.text.toString()
-                    val notePriority = binding.etPriority.text.toString()
-                    val updateNote =
-                        Note(noteIDNote, noteIDUser, noteTitle, noteDescription, notePriority)
-                    noteViewModel.updateNote(updateNote)
-                }
-            }
+//            val noteIDNote = binding.etIDNote.text.toString()
+//            val noteIDUser = binding.etIDUser.text.toString()
+//            if (noteType.equals("Edit")) {
+//                if (noteIDNote.isNotEmpty() && noteIDUser.isNotEmpty()) {
+//                    val noteTitle = binding.etTitle.text.toString()
+//                    val noteDescription = binding.etDescription.text.toString()
+//                    val notePriority = binding.etPriority.text.toString()
+//                    val updateNote =
+//                        Note(noteIDNote, noteIDUser, noteTitle, noteDescription, notePriority)
+//                    noteViewModel.updateNote(updateNote)
+//                }
+//            }
             startActivity(Intent(applicationContext, MainActivity::class.java))
             this.finish()
         }

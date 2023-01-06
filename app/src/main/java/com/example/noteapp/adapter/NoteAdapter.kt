@@ -49,6 +49,7 @@ class NoteAdapter(
                     txtItemTitle.setText(title)
                     txtItemDes.setText(description)
                     txtItemPriority.setText(priority)
+                    idTVDate.setText(timeStamp)
 
                     btnDeleteNote.setOnClickListener {
                         noteDeleteInterface.onDeleteIconClick(this)

@@ -14,6 +14,8 @@ import com.example.noteapp.databinding.FragmentAddBinding
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class AddFragment : Fragment() {
@@ -40,7 +42,9 @@ class AddFragment : Fragment() {
                 val Title = binding.etTitle.text.toString()
                 val Description = binding.etDescription.text.toString()
                 val Priority = binding.etPriority.text.toString()
-                val insertNote = Note(IDnote, IDUser, Title, Description, Priority)
+                val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
+                val currentDateAndTime: String = sdf.format(Date())
+                val insertNote = Note(IDnote, IDUser, Title, Description, Priority, currentDateAndTime)
                 viewModel.insertNote(insertNote)
             }
             findNavController().navigate(R.id.action_addFragment_to_homeFragment)

@@ -28,18 +28,18 @@ class AddNoteActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnAdd.setOnClickListener {
-            val noteIDNote = binding.etIDNote.text.toString()
-            val noteIDUser = binding.etIDUser.text.toString()
-            if (noteIDNote.isNotEmpty() && noteIDUser.isNotEmpty()) {
-                val noteTitle = binding.etTitle.text.toString()
-                val noteDescription = binding.etDescription.text.toString()
-                val notePriority = binding.etPriority.text.toString()
-                val insertNote =
-                    Note(noteIDNote, noteIDUser, noteTitle, noteDescription, notePriority)
-                noteViewModel.insertNote(insertNote)
-            }
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-            this.finish()
+//            val noteIDNote = binding.etIDNote.text.toString()
+//            val noteIDUser = binding.etIDUser.text.toString()
+//            if (noteIDNote.isNotEmpty() && noteIDUser.isNotEmpty()) {
+//                val noteTitle = binding.etTitle.text.toString()
+//                val noteDescription = binding.etDescription.text.toString()
+//                val notePriority = binding.etPriority.text.toString()
+//                val insertNote =
+//                    Note(noteIDNote, noteIDUser, noteTitle, noteDescription, notePriority)
+//                noteViewModel.insertNote(insertNote)
+//            }
+//            startActivity(Intent(applicationContext, MainActivity::class.java))
+//            this.finish()
         }
     }
 
