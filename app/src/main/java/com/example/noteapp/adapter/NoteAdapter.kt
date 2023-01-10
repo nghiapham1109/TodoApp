@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkRequest
 import com.example.noteapp.R
 import com.example.noteapp.databinding.NoteItemBinding
 import com.example.noteapp.model.Note
@@ -20,13 +22,12 @@ import org.w3c.dom.Text
 //@BindingAdapter("{bind:cardBackgroundColor}")
 class NoteAdapter(
     val noteClickInterface: noteClickInterface,
-    val noteDeleteInterface: noteDeleteInterface
+    val noteDeleteInterface: noteDeleteInterface,
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     private val notes = ArrayList<Note>()
 
     inner class NoteViewHolder(private val binding: NoteItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(note: Note) {
             val color1 = ContextCompat.getColor(itemView.context, R.color.red)
             val color2 = ContextCompat.getColor(itemView.context, R.color.light_blue_shade)
