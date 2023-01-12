@@ -44,6 +44,15 @@ class NoteViewModel @Inject constructor(
 
     fun getAllNote(): LiveData<List<Note>> = noteRepository.getAllNote()
 
+    fun getNoteById(idUser: String) {
+        if (idUser == "1") {
+            return getNoteById(idUser)
+        }
+        if (idUser == "2") {
+            return getNoteById(idUser)
+        }
+    }
+
     internal fun applyNotification(notification: Int) {
         workManager.enqueue(OneTimeWorkRequest.from(MyWork::class.java))
     }

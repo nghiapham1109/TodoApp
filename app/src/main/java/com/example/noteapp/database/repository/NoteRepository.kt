@@ -16,5 +16,9 @@ class NoteRepository constructor(
     suspend fun insertNote(note: Note) = noteDao.insertNote(note)
     suspend fun updateNote(note: Note) = noteDao.updateNote(note)
     suspend fun deleteNote(note: Note) = noteDao.deleteNote(note)
+
     fun getAllNote(): LiveData<List<Note>> = noteDao.getAllNote()
+    fun getNoteById(idUser: String): Note? {
+        return noteDao.getNoteById(idUser)
+    }
 }

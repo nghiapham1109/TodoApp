@@ -63,6 +63,12 @@ class HomeFragment : Fragment(), noteClickInterface, noteDeleteInterface {
             }
         })
 
+//        viewModel.getNoteById().observe(viewLifecycleOwner, Observer { list ->
+//            list?.let {
+//                noteRVAdapter.updateList(it)
+//            }
+//        })
+
         binding.btnOpenAddActivity.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
         }

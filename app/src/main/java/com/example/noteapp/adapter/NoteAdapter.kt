@@ -32,9 +32,8 @@ class NoteAdapter(
             val color1 = ContextCompat.getColor(itemView.context, R.color.red)
             val color2 = ContextCompat.getColor(itemView.context, R.color.light_blue_shade)
             val color3 = ContextCompat.getColor(itemView.context, R.color.gray)
-//            val isCheck = note.priority == "1"
-//            itemView.setBackgroundColor(if (isCheck) color1 else color2)
             val isCheck = note.priority
+
             if (isCheck == "1") {
                 itemView.setBackgroundColor(color1)
             }

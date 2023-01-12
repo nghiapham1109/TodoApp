@@ -9,10 +9,12 @@ import android.content.Context.ALARM_SERVICE
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
@@ -51,7 +53,10 @@ class AddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         createNotification()
 
+
         binding.btnAdd.setOnClickListener {
+//                view ->
+//            AddNote(view)
 
             val IDnote = binding.etIDNote.text.toString()
             val IDUser = binding.etIDUser.text.toString()
@@ -71,12 +76,16 @@ class AddFragment : Fragment() {
 
             findNavController().navigate(R.id.action_addFragment_to_homeFragment)
 
-        }
 
+        }
         binding.btBack.setOnClickListener {
             findNavController().navigateUp()
         }
     }
+
+//    fun AddNote(view: View?) {
+//        Log.d(tag, "my Message")
+//    }
 
     private fun myWork() {
 //        val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.NOT_REQUIRED)

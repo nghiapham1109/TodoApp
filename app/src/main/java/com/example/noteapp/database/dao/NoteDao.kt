@@ -19,6 +19,8 @@ interface NoteDao {
     @Query("select * from note")
     fun getAllNote(): LiveData<List<Note>>
 
+    @Query("select * from note where idUser like:idUser")
+    fun getNoteById(idUser: String): Note?
 
 }
 

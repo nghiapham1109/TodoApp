@@ -141,7 +141,8 @@
             android:text="Add Note"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPriority" />
+            app:layout_constraintTop_toBottomOf="@id/etPriority"
+            android:onClick="AddNote"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
