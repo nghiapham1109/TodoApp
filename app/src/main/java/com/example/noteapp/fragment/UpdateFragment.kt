@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.noteapp.BaseFragment
 import com.example.noteapp.R
 import com.example.noteapp.databinding.FragmentAddBinding
 import com.example.noteapp.databinding.FragmentUpdateBinding
@@ -18,7 +19,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class UpdateFragment : Fragment() {
+//class UpdateFragment : Fragment()
+class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_update) {
     private lateinit var binding: FragmentUpdateBinding
     private val viewModel by activityViewModels<NoteViewModel>()
     override fun onCreateView(

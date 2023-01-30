@@ -11,12 +11,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkRequest
 import com.example.noteapp.R
 import com.example.noteapp.databinding.NoteItemBinding
 import com.example.noteapp.model.Note
+import com.example.noteapp.viewmodel.NoteViewModel
 import org.w3c.dom.Text
 
 //@BindingAdapter("{bind:cardBackgroundColor}")
@@ -64,6 +66,7 @@ class NoteAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val binding = NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        //o day
         return NoteViewHolder(binding)
     }
 

@@ -21,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkRequest
+import com.example.noteapp.BaseFragment
 import com.example.noteapp.MyWork
 import com.example.noteapp.R
 import com.example.noteapp.activities.UpdateNoteActivity
@@ -35,7 +36,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), noteClickInterface, noteDeleteInterface {
+//class HomeFragment : Fragment()
+class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), noteClickInterface,
+    noteDeleteInterface {
 
     private lateinit var binding: FragmentHomeBinding
     private val noteRVAdapter: NoteAdapter = NoteAdapter(this, this)
@@ -55,8 +58,6 @@ class HomeFragment : Fragment(), noteClickInterface, noteDeleteInterface {
 
         binding.rvNote.layoutManager = LinearLayoutManager(context)
         binding.rvNote.adapter = noteRVAdapter
-
-
         viewModel.getAllNote().observe(viewLifecycleOwner, Observer { list ->
             list?.let {
                 noteRVAdapter.updateList(it)

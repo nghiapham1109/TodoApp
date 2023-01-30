@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.noteapp.BaseFragment
 import com.example.noteapp.R
 import com.example.noteapp.databinding.FragmentAddBinding
 import com.example.noteapp.databinding.FragmentLoginBinding
@@ -15,7 +16,8 @@ import com.example.noteapp.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+//class LoginFragment : Fragment()
+class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
     private val viewModel by viewModels<UserViewModel>()
     private lateinit var binding: FragmentLoginBinding
 
@@ -24,7 +26,6 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

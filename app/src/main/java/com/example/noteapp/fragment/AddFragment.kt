@@ -23,6 +23,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.work.*
 import com.example.noteapp.AlarmReceiver
+import com.example.noteapp.BaseFragment
 import com.example.noteapp.MyWork
 import com.example.noteapp.R
 import com.example.noteapp.activities.MainActivity
@@ -34,7 +35,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class AddFragment : Fragment() {
+//class AddFragment : Fragment()
+class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
 
     private lateinit var binding: FragmentAddBinding
     private lateinit var alarmManager: AlarmManager
