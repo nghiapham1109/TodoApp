@@ -11,7 +11,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkRequest
@@ -19,16 +22,19 @@ import com.example.noteapp.R
 import com.example.noteapp.databinding.NoteItemBinding
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import org.w3c.dom.Text
 
-//@BindingAdapter("{bind:cardBackgroundColor}")
 class NoteAdapter(
     val noteClickInterface: noteClickInterface,
     val noteDeleteInterface: noteDeleteInterface,
+//    private val viewModel: NoteViewModel
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     private val notes = ArrayList<Note>()
 
-    inner class NoteViewHolder(private val binding: NoteItemBinding) :
+    inner class NoteViewHolder(
+        private val binding: NoteItemBinding,
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(note: Note) {
             val color1 = ContextCompat.getColor(itemView.context, R.color.red)
@@ -52,7 +58,6 @@ class NoteAdapter(
                     txtItemDes.setText(description)
                     txtItemPriority.setText(priority)
                     idTVDate.setText(timeStamp)
-
                     btnDeleteNote.setOnClickListener {
                         noteDeleteInterface.onDeleteIconClick(this)
                     }
@@ -66,12 +71,12 @@ class NoteAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val binding = NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        //o day
         return NoteViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         holder.bind(notes[position])
+//        holder.bind(viewModel.image)
     }
 
     override fun getItemCount(): Int {

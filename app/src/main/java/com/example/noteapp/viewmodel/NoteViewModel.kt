@@ -2,6 +2,8 @@ package com.example.noteapp.viewmodel
 
 import android.app.Application
 import android.app.Notification
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.*
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -22,7 +24,6 @@ class NoteViewModel @Inject constructor(
     application: Application
 ) : AndroidViewModel(application) {
     val notes: LiveData<List<Note>>
-
     val image = MutableLiveData<ImageInfo>()
     private val workManager = WorkManager.getInstance(application)
 
