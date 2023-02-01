@@ -23,8 +23,6 @@ class UserViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
     val user: LiveData<List<User>>
 
-//    private val sharedPreferencesManager = SharePreferencesManager(context)
-
     val loginSuccess: MutableLiveData<Boolean> = MutableLiveData()
 
     init {

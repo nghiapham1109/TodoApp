@@ -1,38 +1,23 @@
 package com.example.noteapp.fragment
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Intent
-import android.os.Build
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkRequest
 import com.example.noteapp.BaseFragment
-import com.example.noteapp.MyWork
 import com.example.noteapp.R
-import com.example.noteapp.activities.UpdateNoteActivity
 import com.example.noteapp.adapter.NoteAdapter
 import com.example.noteapp.adapter.noteClickInterface
 import com.example.noteapp.adapter.noteDeleteInterface
 import com.example.noteapp.databinding.FragmentHomeBinding
-import com.example.noteapp.databinding.NoteItemBinding
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,7 +40,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val sharedPref = requireContext().getSharedPreferences("idUser", Context.MODE_PRIVATE)
+        val idUser = sharedPref.getString("idUser", sharedPref.toString())
+        if (idUser != null) {
+            Log.d("First user login", idUser.toString())
+        }
         binding.rvNote.layoutManager = LinearLayoutManager(context)
         binding.rvNote.adapter = noteRVAdapter
         viewModel.getAllNote().observe(viewLifecycleOwner, Observer { list ->
@@ -64,11 +53,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
             }
         })
 
-//        viewModel.getNoteById().observe(viewLifecycleOwner, Observer { list ->
-//            list?.let {
-//                noteRVAdapter.updateList(it)
-//            }
-//        })
+//        if (idUser != null) {
+//            viewModel.getNoteById(idUser).observe(viewLifecycleOwner, Observer { list ->
+//                list?.let {
+//                    noteRVAdapter.updateList(it)
+//                }
+//            })
+//        }
 
         binding.btnOpenAddActivity.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)

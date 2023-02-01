@@ -28,7 +28,6 @@ import org.w3c.dom.Text
 class NoteAdapter(
     val noteClickInterface: noteClickInterface,
     val noteDeleteInterface: noteDeleteInterface,
-//    private val viewModel: NoteViewModel
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     private val notes = ArrayList<Note>()
 
