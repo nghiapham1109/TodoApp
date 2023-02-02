@@ -45,13 +45,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         viewModel.loginSuccess.observe(viewLifecycleOwner) {
             val sharedPreferences =
                 requireContext().getSharedPreferences("idUser", Context.MODE_PRIVATE)
-//
             if (it) {
                 val idUser = viewModel.getAllUser()
                     .observe(viewLifecycleOwner, Observer { users ->
                         if (users != null && users.isNotEmpty()) {
-                            val firstIdUser = users[0].idUser
-                            Log.d("TAG", firstIdUser.toString())
+                            val firstIdUser = users[1].idUser
                             val editor = sharedPreferences.edit()
                             editor.putString("idUser", firstIdUser.toString())
                             editor.apply()

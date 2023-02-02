@@ -43,23 +43,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         val sharedPref = requireContext().getSharedPreferences("idUser", Context.MODE_PRIVATE)
         val idUser = sharedPref.getString("idUser", sharedPref.toString())
         if (idUser != null) {
-            Log.d("First user login", idUser.toString())
+            Log.d("First user Test", idUser.toString())
         }
         binding.rvNote.layoutManager = LinearLayoutManager(context)
         binding.rvNote.adapter = noteRVAdapter
-        viewModel.getAllNote().observe(viewLifecycleOwner, Observer { list ->
-            list?.let {
-                noteRVAdapter.updateList(it)
-            }
-        })
+//        viewModel.getAllNote().observe(viewLifecycleOwner, Observer { list ->
+//            list?.let {
+//                noteRVAdapter.updateList(it)
+//            }
+//        })
 
-//        if (idUser != null) {
-//            viewModel.getNoteById(idUser).observe(viewLifecycleOwner, Observer { list ->
-//                list?.let {
-//                    noteRVAdapter.updateList(it)
-//                }
-//            })
-//        }
+        if (idUser != null) {
+            viewModel.getNoteById(idUser).observe(viewLifecycleOwner, Observer { list ->
+                list?.let {
+                    noteRVAdapter.updateList(it)
+                }
+            })
+        }
 
         binding.btnOpenAddActivity.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
