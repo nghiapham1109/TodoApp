@@ -30,7 +30,6 @@ class NoteAdapter(
     val noteDeleteInterface: noteDeleteInterface,
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     private val notes = ArrayList<Note>()
-
     inner class NoteViewHolder(
         private val binding: NoteItemBinding,
     ) :
