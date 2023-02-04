@@ -50,5 +50,9 @@ class NoteViewModel @Inject constructor(
     internal fun applyNotification(notification: Int) {
         workManager.enqueue(OneTimeWorkRequest.from(MyWork::class.java))
     }
+
+    fun onAddNoteCLicked() {
+
+    }
 }
 

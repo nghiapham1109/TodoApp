@@ -1,16 +1,9 @@
 package com.example.noteapp.viewmodel
 
 import android.app.Application
-import android.content.Context
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.*
-import com.example.noteapp.database.NoteDatabase
-import com.example.noteapp.database.repository.NoteRepository
 import com.example.noteapp.database.repository.UserRepository
-import com.example.noteapp.model.Note
 import com.example.noteapp.model.User
-import com.example.noteapp.sharedPreferences.SharePreferencesManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,12 +14,13 @@ class UserViewModel @Inject constructor(
     application: Application,
 //    private val context: Context
 ) : AndroidViewModel(application) {
-    val user: LiveData<List<User>>
+    val users: LiveData<List<User>>
+    val loginUser: MutableLiveData<User> = MutableLiveData()
 
     val loginSuccess: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
-        user = userRepository.getAllUser()
+        users = userRepository.getAllUser()
     }
 
     fun insertUser(user: User) = viewModelScope.launch {
@@ -44,8 +38,8 @@ class UserViewModel @Inject constructor(
     fun getAllUser(): LiveData<List<User>> = userRepository.getAllUser()
 
     fun login(userName: String, passWord: String) {
-        val user = userRepository.verifyLoginUser(userName, passWord)
-        user?.let {
+        userRepository.getUser(userName, passWord)?.let {
+            loginUser.value = it
             loginSuccess.value = true
         } ?: run {
             loginSuccess.value = false

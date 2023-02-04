@@ -1,40 +1,25 @@
 package com.example.noteapp.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.databinding.BindingAdapter
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkRequest
+import androidx.recyclerview.widget.*
 import com.example.noteapp.R
+import com.example.noteapp.adapter.NoteAdapter.NoteViewHolder
 import com.example.noteapp.databinding.NoteItemBinding
 import com.example.noteapp.model.Note
-import com.example.noteapp.viewmodel.NoteViewModel
-import dagger.hilt.android.AndroidEntryPoint
-import org.w3c.dom.Text
 
 class NoteAdapter(
     val noteClickInterface: noteClickInterface,
     val noteDeleteInterface: noteDeleteInterface,
-) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
-    private val notes = ArrayList<Note>()
+) : ListAdapter<Note, NoteViewHolder>(NoteDiffCallback()) {
+
     inner class NoteViewHolder(
         private val binding: NoteItemBinding,
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(note: Note) {
+//            binding.note = note
             val color1 = ContextCompat.getColor(itemView.context, R.color.red)
             val color2 = ContextCompat.getColor(itemView.context, R.color.light_blue_shade)
             val color3 = ContextCompat.getColor(itemView.context, R.color.gray)
@@ -73,18 +58,18 @@ class NoteAdapter(
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.bind(notes[position])
+        holder.bind(getItem(position))
 //        holder.bind(viewModel.image)
     }
 
-    override fun getItemCount(): Int {
-        return notes.size
-    }
+    class NoteDiffCallback : DiffUtil.ItemCallback<Note>() {
+        override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem == newItem
+        }
 
-    fun updateList(newList: List<Note>) {
-        notes.clear()
-        notes.addAll(newList)
-        notifyDataSetChanged()
+        override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem.idNote == newItem.idNote
+        }
     }
 
 }

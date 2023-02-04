@@ -1,9 +1,6 @@
 package com.example.noteapp.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity
 data class User(
@@ -30,4 +27,5 @@ data class Note(
     val description: String,
     val priority: String,
     val timeStamp: String
+//    val imageUrl: String
 )

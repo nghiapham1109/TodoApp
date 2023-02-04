@@ -1,16 +1,11 @@
 package com.example.noteapp.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import android.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.noteapp.BaseFragment
 import com.example.noteapp.R
-import com.example.noteapp.databinding.FragmentAddBinding
 import com.example.noteapp.databinding.FragmentUpdateBinding
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
@@ -20,15 +15,15 @@ import java.util.*
 
 @AndroidEntryPoint
 //class UpdateFragment : Fragment()
-class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_update) {
-    private lateinit var binding: FragmentUpdateBinding
+class UpdateFragment : BaseFragment<FragmentUpdateBinding>() {
     private val viewModel by activityViewModels<NoteViewModel>()
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentUpdateBinding.inflate(inflater, container, false)
-        //
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentUpdateBinding
+        get() = { inflater, container, attachToParent ->
+            FragmentUpdateBinding.inflate(inflater, container, attachToParent)
+        }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val noteIDNote = binding.etIDNote
         val noteIDUser = binding.etIDUser
         val noteTitle = binding.etTitle
@@ -54,12 +49,6 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_upd
             val str = arguments?.getString("notePriority")
             notePriority.setText(str)
         }
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         binding.btnUpdate.setOnClickListener {
             val IDnote = binding.etIDNote.text.toString()
             val IDUser = binding.etIDUser.text.toString()

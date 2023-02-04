@@ -18,7 +18,7 @@ class UserRepository constructor(
     suspend fun deleteUser(user: User) = userDao.deleteUser(user)
     fun getAllUser(): LiveData<List<User>> = userDao.getAllUser()
 
-    fun verifyLoginUser(userName: String, passWord: String): User? {
+    fun getUser(userName: String, passWord: String): User? {
        return userDao.readLoginData(userName, passWord)
     }
 
