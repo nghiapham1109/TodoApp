@@ -21,8 +21,6 @@ import java.util.*
 @AndroidEntryPoint
 //class AddFragment : Fragment()
 class AddFragment : BaseFragment<FragmentAddBinding>() {
-
-
     private lateinit var alarmManager: AlarmManager
     private lateinit var pendingIntent: PendingIntent
     private val viewModel by activityViewModels<NoteViewModel>()
@@ -35,15 +33,9 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createNotification()
-
-
         binding.btnAdd.setOnClickListener {
-//                view ->
-//            AddNote(view)
-
             val IDnote = binding.etIDNote.text.toString()
 //            val IDUser = binding.etIDUser.text.toString()
-
             if (IDnote.isNotEmpty()) {
                 val Title = binding.etTitle.text.toString()
                 val Description = binding.etDescription.text.toString()
@@ -56,19 +48,12 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
                 myWork()
                 setAlarm()
             }
-
             findNavController().navigate(R.id.action_addFragment_to_homeFragment)
-
-
         }
         binding.btBack.setOnClickListener {
             findNavController().navigateUp()
         }
     }
-
-//    fun AddNote(view: View?) {
-//        Log.d(tag, "my Message")
-//    }
 
     private fun myWork() {
 //        val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.NOT_REQUIRED)

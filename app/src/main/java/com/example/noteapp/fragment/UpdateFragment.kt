@@ -17,6 +17,7 @@ import java.util.*
 //class UpdateFragment : Fragment()
 class UpdateFragment : BaseFragment<FragmentUpdateBinding>() {
     private val viewModel by activityViewModels<NoteViewModel>()
+
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentUpdateBinding
         get() = { inflater, container, attachToParent ->
             FragmentUpdateBinding.inflate(inflater, container, attachToParent)
@@ -52,7 +53,6 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>() {
         binding.btnUpdate.setOnClickListener {
             val IDnote = binding.etIDNote.text.toString()
             val IDUser = binding.etIDUser.text.toString()
-
             if (IDnote.isNotEmpty() && IDUser.isNotEmpty()) {
                 val Title = binding.etTitle.text.toString()
                 val Description = binding.etDescription.text.toString()
@@ -64,7 +64,6 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>() {
                 viewModel.updateNote(insertNote)
             }
             findNavController().navigate(R.id.action_updateFragment_to_homeFragment)
-
         }
         binding.btBack.setOnClickListener {
             findNavController().navigateUp()

@@ -22,7 +22,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             FragmentLoginBinding.inflate(inflater, container, attachToParent)
         }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnLogin.setOnClickListener {
@@ -31,11 +30,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 binding.etPassword.text.toString()
             )
         }
-
         viewModel.loginSuccess.observe(viewLifecycleOwner) {
 //            val sharedPreferences =
 //                requireContext().getSharedPreferences("idUser", Context.MODE_PRIVATE)
-
             if (it) {
                 viewModel.loginUser.value?.let {
                     TempData.idUser = it.idUser

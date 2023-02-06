@@ -19,30 +19,19 @@ import dagger.hilt.android.AndroidEntryPoint
 //class HomeFragment : Fragment()
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
     noteDeleteInterface {
-
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = { inflater, container, attachToParent ->
             FragmentHomeBinding.inflate(inflater, container, attachToParent)
         }
+
     private val noteRVAdapter: NoteAdapter = NoteAdapter(this, this)
 
     private val viewModel by activityViewModels<NoteViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val sharedPref = requireContext().getSharedPreferences("idUser", Context.MODE_PRIVATE)
-//        val idUser = sharedPref.getString("idUser", sharedPref.toString())
-//        if (idUser != null) {
-//            Log.d("First user Test", idUser.toString())
-//        }
         binding.rvNote.layoutManager = LinearLayoutManager(context)
         binding.rvNote.adapter = noteRVAdapter
-//        viewModel.getAllNote().observe(viewLifecycleOwner, Observer { list ->
-//            list?.let {
-//                noteRVAdapter.updateList(it)
-//            }
-//        })
-
         if (TempData.idUser.isNotEmpty()) {
             viewModel.getNoteById(TempData.idUser).observe(viewLifecycleOwner, Observer { list ->
                 list?.let {
@@ -50,7 +39,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
                 }
             })
         }
-
         binding.btnOpenAddActivity.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
         }
