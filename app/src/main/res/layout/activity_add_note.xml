@@ -13,7 +13,6 @@
         android:background="@drawable/blue_bg"
         android:padding="20dp"
         tools:context=".activities.AddNoteActivity">
-        //
 
         <TextView
             android:id="@+id/tvIDNote"
