@@ -18,6 +18,7 @@ class NoteRepository constructor(
     suspend fun deleteNote(note: Note) = noteDao.deleteNote(note)
 
     fun getAllNote(): LiveData<List<Note>> = noteDao.getAllNote()
-    fun getNoteById(idUser: String): LiveData<List<Note>> =  noteDao.getNoteById(idUser)
+    fun getNoteById(idUser: String): LiveData<List<Note>> = noteDao.getNoteById(idUser)
+    fun searchById(title: String): LiveData<List<Note>> = noteDao.searchByTitle(title)
 
 }

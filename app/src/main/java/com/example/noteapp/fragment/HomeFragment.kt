@@ -1,6 +1,8 @@
 package com.example.noteapp.fragment
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -39,10 +41,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
                 }
             })
         }
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                TODO("Not yet implemented")
+            }
+        })
         binding.btnOpenAddActivity.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
         }
     }
+
 
     override fun onClick(note: Note) {
         var bundle = Bundle()
