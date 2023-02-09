@@ -3,6 +3,7 @@ package com.example.noteapp.fragment
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -43,16 +44,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
         }
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                viewModel.searchByTitle(p0.toString(), TempData.idUser)
+                    .observe(viewLifecycleOwner, Observer { list ->
+                        list?.let {
+                            noteRVAdapter.submitList(it)
+                        }
+                    })
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                val searchTmp = p0.toString()
+                viewModel.searchTitle.value = searchTmp
             }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                viewModel.searchTitle.value = p0.toString()
+            }
+
         })
         binding.btnOpenAddActivity.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)

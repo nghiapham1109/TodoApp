@@ -19,6 +19,7 @@ class NoteViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
     //
 //    val notes: LiveData<List<Note>>
+    val searchTitle = MutableLiveData<String>()
 
     //
     val image = MutableLiveData<ImageInfo>()
@@ -47,7 +48,8 @@ class NoteViewModel @Inject constructor(
 
     fun getNoteById(idUser: String): LiveData<List<Note>> = noteRepository.getNoteById(idUser)
 
-    fun searchById(title: String): LiveData<List<Note>> = noteRepository.searchById(title)
+    fun searchByTitle(searchTmp: String, idUser: String): LiveData<List<Note>> = noteRepository
+        .searchByTitle(searchTmp, idUser)
 
     internal fun applyNotification(notification: Int) {
         workManager.enqueue(OneTimeWorkRequest.from(MyWork::class.java))

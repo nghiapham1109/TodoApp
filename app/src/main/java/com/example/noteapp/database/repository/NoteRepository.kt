@@ -19,6 +19,7 @@ class NoteRepository constructor(
 
     fun getAllNote(): LiveData<List<Note>> = noteDao.getAllNote()
     fun getNoteById(idUser: String): LiveData<List<Note>> = noteDao.getNoteById(idUser)
-    fun searchById(title: String): LiveData<List<Note>> = noteDao.searchByTitle(title)
+    fun searchByTitle(searchTmp: String, idUser: String): LiveData<List<Note>> = noteDao
+        .searchByTitle(searchTmp, idUser)
 
 }
