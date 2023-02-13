@@ -1,6 +1,6 @@
 package com.example.noteapp.fragment
 
-import android.os.Bundle
+import android.os.*
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -31,6 +31,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
 
     private val viewModel by activityViewModels<NoteViewModel>()
 
+    private val searchHandler = Handler(Looper.getMainLooper(), Handler.Callback { msg ->
+        val searchText = msg.obj as String
+        viewModel.searchByTitle(searchText, TempData.idUser).observe(viewLifecycleOwner, Observer
+        { list ->
+            list?.let {
+                noteRVAdapter.submitList(it)
+            }
+        })
+        true
+    })
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvNote.layoutManager = LinearLayoutManager(context)
@@ -44,12 +55,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
         }
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-                viewModel.searchByTitle(p0.toString(), TempData.idUser)
-                    .observe(viewLifecycleOwner, Observer { list ->
-                        list?.let {
-                            noteRVAdapter.submitList(it)
-                        }
-                    })
+                val searchText = p0.toString()
+                searchHandler.removeMessages(0)
+                searchHandler.sendMessageDelayed(Message.obtain(searchHandler, 0, searchText), 500)
+//                viewModel.searchByTitle(p0.toString(), TempData.idUser)
+//                    .observe(viewLifecycleOwner, Observer { list ->
+//                        list?.let {
+//                            noteRVAdapter.submitList(it)
+//                        }
+//                    })
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
