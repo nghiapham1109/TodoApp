@@ -6,7 +6,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.noteapp.BaseFragment
@@ -17,6 +17,10 @@ import com.example.noteapp.datastore.local.TempData
 import com.example.noteapp.model.Note
 import com.example.noteapp.viewmodel.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.subjects.PublishSubject
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeUnit.MILLISECONDS
 
 @AndroidEntryPoint
 //class HomeFragment : Fragment()
@@ -31,14 +35,41 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
 
     private val viewModel by activityViewModels<NoteViewModel>()
 
+    private val searchSubject = PublishSubject.create<String>()
+
+    private fun setUpSearchDebounce() {
+        searchSubject.debounce(800, MILLISECONDS).distinctUntilChanged()
+            .observeOn((AndroidSchedulers.mainThread()))
+            .subscribe({
+                viewModel.searchByTitle(it, TempData.idUser)
+                    .observe(viewLifecycleOwner, Observer { list ->
+                        list?.let {
+                            noteRVAdapter.submitList(it)
+                        }
+                    })
+            }, {
+                Log.e("HomeFrag", it.toString())
+            })
+            .also { disposable ->
+                viewLifecycleOwner.lifecycle.addObserver(object :
+                    LifecycleObserver {
+                    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                    fun onDestroy() {
+                        disposable.dispose()
+                    }
+                })
+            }
+    }
+
     private val searchHandler = Handler(Looper.getMainLooper(), Handler.Callback { msg ->
         val searchText = msg.obj as String
-        viewModel.searchByTitle(searchText, TempData.idUser).observe(viewLifecycleOwner, Observer
-        { list ->
-            list?.let {
-                noteRVAdapter.submitList(it)
-            }
-        })
+        searchSubject.onNext(searchText)
+//        viewModel.searchByTitle(searchText, TempData.idUser).observe(viewLifecycleOwner, Observer
+//        { list ->
+//            list?.let {
+//                noteRVAdapter.submitList(it)
+//            }
+//        })
         true
     })
 
@@ -53,6 +84,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), noteClickInterface,
                 }
             })
         }
+        setUpSearchDebounce()
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 val searchText = p0.toString()
