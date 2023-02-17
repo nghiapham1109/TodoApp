@@ -19,7 +19,7 @@ class UserRepository constructor(
     fun getAllUser(): LiveData<List<User>> = userDao.getAllUser()
 
     fun getUser(userName: String, passWord: String): User? {
-       return userDao.readLoginData(userName, passWord)
+        return userDao.readLoginData(userName, passWord)
     }
 
 }

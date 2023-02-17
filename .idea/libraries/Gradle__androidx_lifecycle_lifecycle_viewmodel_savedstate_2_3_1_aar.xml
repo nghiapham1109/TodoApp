@@ -1,17 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/18c4e037a00c97c7933de6ea777da9f5/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/398334533bc911bc3b6dedc3ca3c709d/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e240bb8c985ff8eb58793e2a36d99d5c/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/112d19ed6f1e45d7592b5c2efe66c21b/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5077781b0dacb4678554c70b75973e62/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/31e632be5730c61ce2b4613a9be92768/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0913c0dac5f16b4142df347ff75456ee/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bce25f4088f9f25673cb98980333f148/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e8b2f2b7257a45a2594c23ee8bb5b9b8/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f4a08b33342cc43caab44f4c209224fa/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f4a08b33342cc43caab44f4c209224fa/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f4a08b33342cc43caab44f4c209224fa/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />

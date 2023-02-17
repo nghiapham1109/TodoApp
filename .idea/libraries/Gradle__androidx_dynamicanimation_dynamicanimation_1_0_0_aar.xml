@@ -1,12 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.dynamicanimation:dynamicanimation:1.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d674dce74792c381e6bb7df31f3ca1a2/transformed/dynamicanimation-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7730b1a09e0e5b055de28008ac75afd0/transformed/dynamicanimation-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/19c012aebbaf9cb3ead5a7291ba70fda/transformed/dynamicanimation-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/000824ef94a9c3bff8b09288c7ea9b79/transformed/dynamicanimation-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3510aa979342f8aad2d807f418b07820/transformed/dynamicanimation-1.0.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3510aa979342f8aad2d807f418b07820/transformed/dynamicanimation-1.0.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3510aa979342f8aad2d807f418b07820/transformed/dynamicanimation-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />

@@ -5,7 +5,6 @@
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bed66217f4a4a7f5f0d9d85e117c3bcc/transformed/exifinterface-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bed66217f4a4a7f5f0d9d85e117c3bcc/transformed/exifinterface-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bed66217f4a4a7f5f0d9d85e117c3bcc/transformed/exifinterface-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
