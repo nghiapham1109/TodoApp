@@ -37,10 +37,10 @@ class NoteAdapter(
 
             with(binding) {
                 with(note) {
-                    txtItemTitle.setText(title)
-                    txtItemDes.setText(description)
-                    txtItemPriority.setText(priority)
-                    idTVDate.setText(timeStamp)
+                    txtItemTitle.setText("Title: " + title)
+                    txtItemDes.setText("Description: " + description)
+                    txtItemPriority.setText("Priority: " + priority)
+                    idTVDate.setText("Time: " + timeStamp)
                     btnDeleteNote.setOnClickListener {
                         noteDeleteInterface.onDeleteIconClick(this)
                     }

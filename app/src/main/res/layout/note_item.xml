@@ -10,16 +10,19 @@
 
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/layout_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="3dp">
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="0.5dp">
 
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp">
@@ -31,9 +34,8 @@
                 android:layout_toLeftOf="@id/btn_delete_note"
                 android:padding="4dp"
                 android:text="Title: "
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,8 +50,8 @@
                 android:layout_toLeftOf="@id/btn_delete_note"
                 android:padding="4sp"
                 android:text="Description: "
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@+id/txt_item_title" />
 
             <TextView
@@ -63,8 +65,8 @@
                 android:layout_toLeftOf="@id/btn_delete_note"
                 android:padding="4sp"
                 android:text="Priority: "
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@+id/txt_item_des" />
 
             <TextView
@@ -113,5 +115,5 @@
         </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
